@@ -29,8 +29,8 @@ public class GabionWall extends Structure {
                 new ArrayList<Material>(Arrays.asList(Material.GABION_STONE)), 
                         length,
                         width,
-                        height
-                        );
+                        height);
+        
         this.basketCount = Gabion.getBasketCount(length, height);
     }
     
