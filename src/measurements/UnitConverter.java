@@ -162,7 +162,7 @@ public class UnitConverter {
                 break;
         }
         
-        return new Measurement(returnVolume, CustomaryUnit.CU_FOOT);
+        return new Measurement(returnVolume, CustomaryUnit.CU_YARD);
     }
 
     private static void checkLength(Measurement m)
