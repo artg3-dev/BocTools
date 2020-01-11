@@ -20,10 +20,6 @@ import measurements.Quantity;
  * @author A3
  */
 public class GabionSandwichFilter extends Structure {
-
-    public static final int HEIGHT = 0;
-    public static final int WIDTH = 1;
-    
     private EnumMap<Gabion, Integer> baskets;
 
     public GabionSandwichFilter(Measurement height, Measurement length) {
