@@ -9,7 +9,12 @@ package measurements;
  *
  * @author A3
  */
+
 public class Measurement implements Convertable, Cloneable {
+    
+    public static final int LENGTH = 0;
+    public static final int WIDTH = 1;
+    public static final int HEIGHT = 2;
 
     private double value;
     private CustomaryUnit unit;

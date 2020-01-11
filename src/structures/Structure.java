@@ -20,17 +20,20 @@ public abstract class Structure {
     protected final String name;
     protected final ArrayList<Material> materials;
     protected ArrayList<Measurement> measurements;
-    protected HashMap<Material, Quantity> qntys;
 
-    public Structure(String name, ArrayList<Material> materials,
+    //when initializing a structure, the Measurements must be given as
+    public Structure(String name, ArrayList<Material> materials, 
+            Measurement length, Measurement width, Measurement height,
             Measurement... measurement) {
         this.measurements = new ArrayList();
         this.materials = materials;
+        measurements.add(length);
+        measurements.add(width);
+        measurements.add(height);
         for (Measurement i : measurement) {
             this.measurements.add(i);
         }
         this.name = name;
-        this.qntys = new HashMap();
     }
 
     public String getName() {
@@ -41,7 +44,7 @@ public abstract class Structure {
         return this.materials;
     }
 
-    protected void CheckIfValidMaterial(Material m) 
+    protected void CheckIfValidMaterial(Material m)
             throws IllegalArgumentException {
         if (!materials.contains(m)) {
             throw new IllegalArgumentException("Material " + m
@@ -49,9 +52,35 @@ public abstract class Structure {
         }
     }
 
-    abstract public Measurement getMeasurement(int type); //i.e. (pipe length, top of basket
+    public Measurement getMeasurement(int type) throws IllegalArgumentException{
+        try {
+            return measurements.get(type);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Measurement type not valid. "
+                    + "Check Measurement.CONSTANTS for options");
+        }
+    }
+    
+    protected Measurement getLength() {
+        return measurements.get(Measurement.LENGTH);
+    }
+    
+    protected Measurement getWidth() {
+        return measurements.get(Measurement.WIDTH);
+    }
+    
+    protected Measurement getHeight() {
+        return measurements.get(Measurement.HEIGHT);
+    }
 
     abstract public Quantity getQuantity(Material m);
 
-    abstract public HashMap<Material, Quantity> getQuantities();
+    public HashMap<Material, Quantity> getQuantities() {
+        HashMap<Material, Quantity> qntys = new HashMap<>();
+        for (Material m : materials) {
+            qntys.put(m, this.getQuantity(m));
+        }
+        
+        return qntys;
+    }
 }
