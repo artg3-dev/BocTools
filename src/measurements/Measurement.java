@@ -10,6 +10,7 @@ package measurements;
  * @author A3
  */
 public class Measurement implements Convertable {
+public class Measurement implements Convertable, Cloneable {
 
     private double value;
     private CustomaryUnit unit;
@@ -121,6 +122,11 @@ public class Measurement implements Convertable {
                 this.unit = UnitConverter.toCubicYards(this).getUnit();
                 break;
         }
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
 }
