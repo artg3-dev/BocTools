@@ -52,13 +52,14 @@ public class Measurement implements Convertable, Cloneable {
     public Measurement subtract(Measurement m) throws IllegalArgumentException {
         if (this.dim != m.dim) {
             throw new IllegalArgumentException(
-                    "Measurements must be of the same dimension to be added");
+                    "Measurements must be of the same "
+                            + "dimension to be subtracted");
         }
 
         //converts the given measurement to the unit of this instance
         Measurement convertedM = this.getCompatable(m);
-        
-        //subtracts the values and returns the final sum
+
+        //subtracts the values and returns the final value
         double v = this.value - convertedM.value;
         return new Measurement(v, this.unit);
     }
