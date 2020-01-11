@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import Materials.Material;
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.util.EnumMap;
 import measurements.CustomaryUnit;
 import measurements.Measurement;
@@ -25,31 +24,18 @@ public class GabionSandwichFilter extends Structure {
     private static final Measurement width = new Measurement(3, 
             CustomaryUnit.FOOT);
 
-    public GabionSandwichFilter(Measurement height, Measurement length) {
     public GabionSandwichFilter(Measurement length, Measurement height) {
         super("Gabion Sandwich Filter",
                 new ArrayList<Material>(Arrays.asList( 
                         Material.GABION_STONE, Material.SAND, 
                         Material.NO1_STONE, Material.WOVEN_GEO)),
-                height, 
-                length);
                 length,
                 width,
                 height);
+        this.baskets = new EnumMap<>(Gabion.class);
         
     }
 
-    @Override
-    public Measurement getMeasurement(int type) {
-        switch (type) {
-            case HEIGHT:
-                return this.measurements.get(HEIGHT);
-            case WIDTH:
-                return this.measurements.get(WIDTH);
-        }
-        return null;
-    }
-    
     @Override
     public Quantity getQuantity(Material m) throws IllegalArgumentException {
         CheckIfValidMaterial(m);
