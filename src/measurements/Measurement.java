@@ -64,8 +64,61 @@ public class Measurement implements Convertable, Cloneable {
         return new Measurement(v, this.unit);
     }
 
+    public Measurement multiply(Measurement m) throws IllegalArgumentException {
+        // Error if either measurement is a volume
+        if (this.dim == UnitDimension.VOLUME || m.dim == UnitDimension.VOLUME) {
+            throw new IllegalArgumentException("Volumes cannot be multiplied "
+                    + "by other measurements");
         }
 
+        // Error if both measurements are areas
+        if (this.dim == UnitDimension.AREA && m.dim == UnitDimension.AREA) {
+            throw new IllegalArgumentException(
+                    "Two areas cannot be multiplied");
+        }
+
+        //converts the given measurement to the unit of this instance
+        Measurement convertedM = this.getCompatable(m);
+
+        //finds the correct unit after multiplication
+        CustomaryUnit u = null;
+        if (this.dim == UnitDimension.LENGTH && m.dim == UnitDimension.LENGTH) {
+            switch (this.unit) {
+                case INCH:
+                    u = CustomaryUnit.SQ_INCH;
+                    break;
+                case FOOT:
+                    u = CustomaryUnit.SQ_FOOT;
+                    break;
+                case YARD:
+                    u = CustomaryUnit.SQ_YARD;
+                    break;
+            }
+        } else {
+            switch (this.unit) {
+                case INCH:
+                case SQ_INCH:
+                    u = CustomaryUnit.CU_INCH;
+                    break;
+                case FOOT:
+                case SQ_FOOT:
+                    u = CustomaryUnit.CU_FOOT;
+                    break;
+                case YARD:
+                case SQ_YARD:
+                    u = CustomaryUnit.CU_YARD;
+                    break;
+            }
+        }
+
+        //multiplies the values and returns the result
+        double v = this.value * convertedM.value;
+
+        return new Measurement(v, u);
+    }
+
+    public Measurement getCompatable(Measurement m)
+            throws IllegalArgumentException {
         //clones m to return a new, separate measurement
         try {
             Measurement compatable = (Measurement) m.clone();
