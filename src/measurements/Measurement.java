@@ -64,11 +64,6 @@ public class Measurement implements Convertable, Cloneable {
         return new Measurement(v, this.unit);
     }
 
-    public Measurement getCompatable(Measurement m) throws IllegalArgumentException {
-        //checks validity of conversion
-        if (this.dim != m.dim) {
-            throw new IllegalArgumentException("Measurements must be of the "
-                    + "same dimension to be converted");
         }
 
         //clones m to return a new, separate measurement
