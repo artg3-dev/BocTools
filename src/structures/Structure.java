@@ -20,7 +20,6 @@ public abstract class Structure {
     protected final String name;
     protected final ArrayList<Material> materials;
     protected ArrayList<Measurement> measurements;
-    protected HashMap<Material, Quantity> qntys;
 
     //when initializing a structure, the Measurements must be given as
     public Structure(String name, ArrayList<Material> materials, 
@@ -35,7 +34,6 @@ public abstract class Structure {
             this.measurements.add(i);
         }
         this.name = name;
-        this.qntys = new HashMap();
     }
 
     public String getName() {
@@ -77,5 +75,12 @@ public abstract class Structure {
 
     abstract public Quantity getQuantity(Material m);
 
-    abstract public HashMap<Material, Quantity> getQuantities();
+    public HashMap<Material, Quantity> getQuantities() {
+        HashMap<Material, Quantity> qntys = new HashMap<>();
+        for (Material m : materials) {
+            qntys.put(m, this.getQuantity(m));
+        }
+        
+        return qntys;
+    }
 }
