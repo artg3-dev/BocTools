@@ -36,11 +36,6 @@ public enum Gabion {
                 * height.getValue(), CustomaryUnit.CU_FOOT);
     }
 
-    @Override
-    public String toString() {
-        return name;
-    }
-
     public static EnumMap<Gabion, Integer> getBasketCount(Measurement mLength)
             throws IllegalArgumentException {
 
@@ -95,5 +90,10 @@ public enum Gabion {
                 return basketCount;
         }
         return null;
+    }
+    
+    @Override
+    public String toString() {
+        return name;
     }
 }
