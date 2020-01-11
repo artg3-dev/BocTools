@@ -36,6 +36,12 @@ public class GabionWall extends Structure {
     
     @Override
     public Quantity getQuantity(Material m) {
+        if (materials.contains(m)) {
+            Measurement v = getLength().multiply(width.multiply(getHeight()));
+            v.toYards();
+            return new Quantity(v, Material.GABION_STONE);
+        }
+        return null;
     }
     
     @Override
