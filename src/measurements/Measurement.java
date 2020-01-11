@@ -29,6 +29,37 @@ public class Measurement implements Convertable {
         return value;
     }
 
+    public void convertToThis(Measurement m) throws IllegalArgumentException {
+        //checks validity of conversion
+        if (this.dim != m.dim) {
+            throw new IllegalArgumentException("Measurements must be of the "
+                    + "same dimension to be converted");
+        }
+
+        // converts given measurement 'm' to the unit of the instance on which
+        // this was called.
+        if (null != 
+                unit) switch (unit) {
+            case INCH:
+            case SQ_INCH:
+            case CU_INCH:
+                m.toInches();
+                break;
+            case FOOT:
+            case SQ_FOOT:
+            case CU_FOOT:
+                m.toFeet();
+                break;
+            case YARD:
+            case SQ_YARD:
+            case CU_YARD:
+                m.toYards();
+                break;
+            default:
+                break;
+        }
+    }
+
     @Override
     public String toString() {
         if (value == 1) {
