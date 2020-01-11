@@ -36,8 +36,8 @@ public enum Gabion {
                 * height.getValue(), CustomaryUnit.CU_FOOT);
     }
 
-    public static EnumMap<Gabion, Integer> getBasketCount(Measurement mLength)
-            throws IllegalArgumentException {
+    public static EnumMap<Gabion, Integer> getBasketCount(Measurement mLength, 
+            Measurement mHeight) throws IllegalArgumentException {
 
         //checks for illegal unit dimension and converts to feet
         if (mLength.getUnit().getDim() != UnitDimension.LENGTH) {
