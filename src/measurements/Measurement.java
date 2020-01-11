@@ -29,6 +29,26 @@ public class Measurement implements Convertable, Cloneable {
         return value;
     }
 
+    /*
+    * --Measurement Math Functions--
+    *
+    * All units will be converted to the unit of the instance the method was
+    * called on
+     */
+    public Measurement add(Measurement m) throws IllegalArgumentException {
+        if (this.dim != m.dim) {
+            throw new IllegalArgumentException(
+                    "Measurements must be of the same dimension to be added");
+        }
+
+        //converts the given measurement to the unit of this instance
+        Measurement convertedM = this.getCompatable(m);
+
+        //adds the values and returns the final sum
+        double v = this.value + convertedM.value;
+        return new Measurement(v, this.unit);
+    }
+
     public Measurement getCompatable(Measurement m) throws IllegalArgumentException {
         //checks validity of conversion
         if (this.dim != m.dim) {
