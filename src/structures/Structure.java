@@ -54,7 +54,7 @@ public abstract class Structure {
         }
     }
 
-    public Measurement getMeasurement(int type) throws IllegalArgumentException{//i.e. (pipe length, top of basket
+    public Measurement getMeasurement(int type) throws IllegalArgumentException{
         try {
             return measurements.get(type);
         } catch (Exception e) {
