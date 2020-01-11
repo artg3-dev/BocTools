@@ -29,7 +29,6 @@ public class Measurement implements Convertable, Cloneable {
         return value;
     }
 
-    public void convertToThis(Measurement m) throws IllegalArgumentException {
     public Measurement getCompatable(Measurement m) throws IllegalArgumentException {
         //checks validity of conversion
         if (this.dim != m.dim) {
