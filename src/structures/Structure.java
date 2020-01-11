@@ -22,10 +22,15 @@ public abstract class Structure {
     protected ArrayList<Measurement> measurements;
     protected HashMap<Material, Quantity> qntys;
 
-    public Structure(String name, ArrayList<Material> materials,
+    //when initializing a structure, the Measurements must be given as
+    public Structure(String name, ArrayList<Material> materials, 
+            Measurement length, Measurement width, Measurement height,
             Measurement... measurement) {
         this.measurements = new ArrayList();
         this.materials = materials;
+        measurements.add(length);
+        measurements.add(width);
+        measurements.add(height);
         for (Measurement i : measurement) {
             this.measurements.add(i);
         }
@@ -41,7 +46,7 @@ public abstract class Structure {
         return this.materials;
     }
 
-    protected void CheckIfValidMaterial(Material m) 
+    protected void CheckIfValidMaterial(Material m)
             throws IllegalArgumentException {
         if (!materials.contains(m)) {
             throw new IllegalArgumentException("Material " + m
@@ -49,7 +54,14 @@ public abstract class Structure {
         }
     }
 
-    abstract public Measurement getMeasurement(int type); //i.e. (pipe length, top of basket
+    public Measurement getMeasurement(int type) throws IllegalArgumentException{//i.e. (pipe length, top of basket
+        try {
+            return measurements.get(type);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Measurement type not valid. "
+                    + "Check Measurement.CONSTANTS for options");
+        }
+    }
 
     abstract public Quantity getQuantity(Material m);
 
