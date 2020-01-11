@@ -44,9 +44,4 @@ public class GabionWall extends Structure {
         return null;
 
     }
-    
-    @Override
-    public HashMap<Material, Quantity> getQuantities() {
-    }
-    
 }
