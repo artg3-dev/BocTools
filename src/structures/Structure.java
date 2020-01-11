@@ -62,6 +62,18 @@ public abstract class Structure {
                     + "Check Measurement.CONSTANTS for options");
         }
     }
+    
+    protected Measurement getLength() {
+        return measurements.get(Measurement.LENGTH);
+    }
+    
+    protected Measurement getWidth() {
+        return measurements.get(Measurement.WIDTH);
+    }
+    
+    protected Measurement getHeight() {
+        return measurements.get(Measurement.HEIGHT);
+    }
 
     abstract public Quantity getQuantity(Material m);
 
