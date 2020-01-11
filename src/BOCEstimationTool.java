@@ -13,6 +13,7 @@ import measurements.CustomaryUnit;
 import Materials.Material;
 import measurements.Measurement;
 import measurements.Quantity;
+import structures.Sandfilter;
 
 public class BOCEstimationTool {
 
@@ -20,17 +21,13 @@ public class BOCEstimationTool {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Measurement m1 = new Measurement(10, CustomaryUnit.SQ_FOOT);
-        Measurement m2 = new Measurement(24, CustomaryUnit.FOOT);
-        System.out.println(m1);
-        System.out.println(m2);
-        
-        System.out.println("");
-        
-        Measurement result = m1.multiply(m2);
-        System.out.println(result);
+        Measurement m1 = new Measurement(10, CustomaryUnit.FOOT);
+        Measurement m2 = new Measurement(3, CustomaryUnit.FOOT);
 
-        
+        Sandfilter s = new Sandfilter(m1, m2, Material.SAND);
+        for (Material i : s.getMaterials()) {
+            System.out.println(s.getQuantity(i));
+        }
         
         
 
