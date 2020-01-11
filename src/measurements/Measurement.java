@@ -31,34 +31,44 @@ public class Measurement implements Convertable, Cloneable {
     }
 
     public void convertToThis(Measurement m) throws IllegalArgumentException {
+    public Measurement getCompatable(Measurement m) throws IllegalArgumentException {
         //checks validity of conversion
         if (this.dim != m.dim) {
             throw new IllegalArgumentException("Measurements must be of the "
                     + "same dimension to be converted");
         }
 
-        // converts given measurement 'm' to the unit of the instance on which
-        // this was called.
-        if (null != 
-                unit) switch (unit) {
-            case INCH:
-            case SQ_INCH:
-            case CU_INCH:
-                m.toInches();
-                break;
-            case FOOT:
-            case SQ_FOOT:
-            case CU_FOOT:
-                m.toFeet();
-                break;
-            case YARD:
-            case SQ_YARD:
-            case CU_YARD:
-                m.toYards();
-                break;
-            default:
-                break;
+        //clones m to return a new, separate measurement
+        try {
+            Measurement compatable = (Measurement) m.clone();
+            // converts given measurement 'm' to the unit of the instance on which
+            // this was called.
+            if (null
+                    != unit) {
+                switch (unit) {
+                    case INCH:
+                    case SQ_INCH:
+                    case CU_INCH:
+                        compatable.toInches();
+                        return compatable;
+                    case FOOT:
+                    case SQ_FOOT:
+                    case CU_FOOT:
+                        compatable.toFeet();
+                        return compatable;
+                    case YARD:
+                    case SQ_YARD:
+                    case CU_YARD:
+                        compatable.toYards();
+                        return compatable;
+                    default:
+                        break;
+
+                }
+            }
+        } catch (CloneNotSupportedException e) {
         }
+        return null;
     }
 
     @Override
