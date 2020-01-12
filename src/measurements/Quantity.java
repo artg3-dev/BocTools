@@ -24,6 +24,10 @@ public class Quantity {
     public Material getMaterial() {
         return this.mat;
     }
+    
+    public Measurement getMeasurement() {
+        return this.measurement;
+    }
 
     public Quantity add(Quantity q) throws IllegalArgumentException {
         if (this.mat == q.mat) {
