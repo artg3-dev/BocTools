@@ -22,15 +22,9 @@ public abstract class Structure {
     protected HashMap<Integer, Measurement> measurements;
 
     //when initializing a structure, the Measurements must be given as
-    public Structure(String name, ArrayList<Material> materials, 
-            Measurement length, Measurement width, Measurement height,
-            Measurement radius) {
+    public Structure(String name, ArrayList<Material> materials) { 
         this.measurements = new HashMap();
         this.materials = materials;
-        measurements.put(Measurement.LENGTH, length);
-        measurements.put(Measurement.WIDTH, width);
-        measurements.put(Measurement.HEIGHT, height);
-        measurements.put(Measurement.RADIUS, radius);
         this.name = name;
     }
 
@@ -50,7 +44,7 @@ public abstract class Structure {
         }
     }
 
-    public Measurement getMeasurement(int type) throws IllegalArgumentException{
+    public Measurement getMeasurement(int type) throws IllegalArgumentException {
         try {
             return measurements.get(type);
         } catch (Exception e) {
@@ -58,17 +52,38 @@ public abstract class Structure {
                     + "Check Measurement.CONSTANTS for options");
         }
     }
-    
-    protected Measurement getLength() {
-        return measurements.get(Measurement.LENGTH);
+
+    public Measurement getMesaurement(int type) throws IllegalArgumentException {
+        try {
+            return measurements.get(type);
+
+        } catch (Exception e) {
+            throw new IllegalArgumentException(
+                    "Given measurement type is not valid, please check "
+                    + "Mesaurement.CONSTANTS for examples.");
+        }
     }
     
-    protected Measurement getWidth() {
-        return measurements.get(Measurement.WIDTH);
+    public void setMeasurement(int type, Measurement m) {
+        try {
+            measurements.put(type, m);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(
+                    "Given measurement type is not valid, please check "
+                    + "Mesaurement.CONSTANTS for examples.");
+        }
     }
     
-    protected Measurement getHeight() {
-        return measurements.get(Measurement.HEIGHT);
+    protected Measurement getVolume() throws IllegalArgumentException {
+        try {
+            return measurements.get(Measurement.LENGTH).multiply(
+                    measurements.get(Measurement.WIDTH)).multiply(
+                            measurements.get(Measurement.HEIGHT));
+            
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Either Length, Width, or "
+                    + "Height have not been defined");
+        }
     }
 
     abstract public Quantity getQuantity(Material m);
@@ -78,7 +93,7 @@ public abstract class Structure {
         for (Material m : materials) {
             qntys.put(m, this.getQuantity(m));
         }
-        
+
         return qntys;
     }
 }
