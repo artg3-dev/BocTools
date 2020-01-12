@@ -23,7 +23,19 @@ public class GabionWall extends Structure {
     private EnumMap<Gabion, Integer> basketCount;
     private static final Measurement width = 
             new Measurement(3, CustomaryUnit.FOOT);
+
+    public static final int OUTTER_WALL_A = 41;
+    public static final int OUTTER_WALL_B = 42;
+    public static final int OUTTER_WALL_C = 43;
+    public static final int INNER_WALL_A = 44;
+    public static final int INNER_WALL_B = 45;
+    public static final int INNER_WALL_C = 46;
     
+    
+    private EnumMap<Gabion, Integer> basketCount;
+    private static final Measurement width
+            = new Measurement(3, CustomaryUnit.FOOT);
+
     public GabionWall(Measurement length, Measurement height) {
         super("Gabion Wall", 
                 new ArrayList<Material>(Arrays.asList(Material.GABION_STONE)));
