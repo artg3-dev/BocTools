@@ -27,7 +27,7 @@ public class AngleGSF extends GabionSandwichFilter{
         
         this.isSimple = isSimple;
         
-        if (isSimple) {
+        if (this.isSimple) {
             owA = new GabionWall(outsideA, height);
             owB = new GabionWall(outsideB.subtract(new Measurement(3)), height);
             iwA = new GabionWall(outsideA.subtract(new Measurement(3)), height);

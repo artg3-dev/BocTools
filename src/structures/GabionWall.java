@@ -10,7 +10,6 @@ import Materials.Material;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumMap;
-import java.util.HashMap;
 import measurements.CustomaryUnit;
 import measurements.Measurement;
 import measurements.Quantity;
