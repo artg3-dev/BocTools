@@ -20,9 +20,6 @@ import measurements.Quantity;
  * @author A3
  */
 public class GabionWall extends Structure {
-    private EnumMap<Gabion, Integer> basketCount;
-    private static final Measurement width = 
-            new Measurement(3, CustomaryUnit.FOOT);
 
     public static final int OUTTER_WALL_A = 41;
     public static final int OUTTER_WALL_B = 42;
@@ -37,15 +34,19 @@ public class GabionWall extends Structure {
             = new Measurement(3, CustomaryUnit.FOOT);
 
     public GabionWall(Measurement length, Measurement height) {
-        super("Gabion Wall", 
+        super("Gabion Wall",
                 new ArrayList<Material>(Arrays.asList(Material.GABION_STONE)));
         measurements.put(Measurement.LENGTH, length);
         measurements.put(Measurement.WIDTH, width);
         measurements.put(Measurement.HEIGHT, height);
-        
+
         this.basketCount = Gabion.getBasketCount(length, height);
     }
     
+    protected EnumMap<Gabion, Integer> getBasketCount() {
+        return this.basketCount;
+    }
+
     @Override
     public Quantity getQuantity(Material m) {
         if (materials.contains(m)) {
