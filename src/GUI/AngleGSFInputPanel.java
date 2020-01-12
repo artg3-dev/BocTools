@@ -43,7 +43,7 @@ public class AngleGSFInputPanel extends JPanel {
         
         sideBInput = new JTextField();
         sideBInput.setColumns(6);
-        add(sideAInput);
+        add(sideBInput);
         
         filterType = new FilterComboBox();
         add(filterType);
