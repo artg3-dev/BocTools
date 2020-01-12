@@ -20,7 +20,7 @@ public class BasicGSFInputPanel extends JPanel {
     
     public BasicGSFInputPanel() {
         super();
-        setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
         label = new JLabel("Length");
         inputLength = new JTextField();
