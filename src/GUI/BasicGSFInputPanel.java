@@ -22,7 +22,7 @@ public class BasicGSFInputPanel extends JPanel {
         super();
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
-        label = new JLabel("Length");
+        label = new JLabel("Length (ft)");
         inputLength = new JTextField();
         inputLength.setColumns(6);
         
