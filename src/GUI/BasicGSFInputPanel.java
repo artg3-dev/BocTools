@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import GUI.comboboxes.FilterComboBox;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,6 +18,7 @@ import javax.swing.JTextField;
 public class BasicGSFInputPanel extends JPanel {
     private JLabel label;
     private JTextField inputLength;
+    private FilterComboBox filterType;
     
     public BasicGSFInputPanel() {
         super();
@@ -25,8 +27,10 @@ public class BasicGSFInputPanel extends JPanel {
         label = new JLabel("Length (ft)");
         inputLength = new JTextField();
         inputLength.setColumns(6);
+        filterType = new FilterComboBox();
         
         add(label);
         add(inputLength);
+        add(filterType);
     }
 }
