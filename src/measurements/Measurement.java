@@ -5,6 +5,9 @@
  */
 package measurements;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 /**
  *
  * @author A3
@@ -20,6 +23,8 @@ public class Measurement implements Convertable, Cloneable {
     private double value;
     private CustomaryUnit unit;
     private final UnitDimension dim;
+    
+    private static DecimalFormat df2 = new DecimalFormat("#.##");
 
     public Measurement(double value, CustomaryUnit unit) {
         this.value = value;
@@ -166,10 +171,11 @@ public class Measurement implements Convertable, Cloneable {
 
     @Override
     public String toString() {
+        df2.setRoundingMode(RoundingMode.HALF_UP);
         if (value == 1) {
-            return value + " " + unit.getSingular();
+            return df2.format(value) + " " + unit.getSingular();
         } else {
-            return value + " " + unit.getPlural();
+            return df2.format(value) + " " + unit.getPlural();
         }
     }
 
