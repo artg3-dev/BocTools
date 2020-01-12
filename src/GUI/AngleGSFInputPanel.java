@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import GUI.comboboxes.FilterComboBox;
 import javax.swing.BoxLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -20,7 +21,8 @@ public class AngleGSFInputPanel extends JPanel {
     private JCheckBox isSimple;
     private JLabel sideALabel, sideBLabel;
     private JTextField sideAInput, sideBInput;
-
+    private FilterComboBox filterType;
+    
     public AngleGSFInputPanel() {
         super();
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
@@ -42,6 +44,9 @@ public class AngleGSFInputPanel extends JPanel {
         sideBInput = new JTextField();
         sideBInput.setColumns(6);
         add(sideAInput);
+        
+        filterType = new FilterComboBox();
+        add(filterType);
     }
 
 }
