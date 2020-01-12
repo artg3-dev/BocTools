@@ -5,17 +5,28 @@
  */
 package GUI;
 
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
  * @author A3
  */
 public class BasicGSFInputPanel extends JPanel {
-
+    private JLabel label;
+    private JTextField inputLength;
+    
     public BasicGSFInputPanel() {
         super();
+        label = new JLabel("Length");
+        inputLength = new JTextField();
+        inputLength.setColumns(6);
         
+        setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+        add(label);
+        add(inputLength);
     }
 
 }
