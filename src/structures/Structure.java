@@ -19,20 +19,18 @@ public abstract class Structure {
 
     protected final String name;
     protected final ArrayList<Material> materials;
-    protected ArrayList<Measurement> measurements;
+    protected HashMap<Integer, Measurement> measurements;
 
     //when initializing a structure, the Measurements must be given as
     public Structure(String name, ArrayList<Material> materials, 
             Measurement length, Measurement width, Measurement height,
-            Measurement... measurement) {
-        this.measurements = new ArrayList();
+            Measurement radius) {
+        this.measurements = new HashMap();
         this.materials = materials;
-        measurements.add(length);
-        measurements.add(width);
-        measurements.add(height);
-        for (Measurement i : measurement) {
-            this.measurements.add(i);
-        }
+        measurements.put(Measurement.LENGTH, length);
+        measurements.put(Measurement.WIDTH, width);
+        measurements.put(Measurement.HEIGHT, height);
+        measurements.put(Measurement.RADIUS, radius);
         this.name = name;
     }
 

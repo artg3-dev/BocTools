@@ -25,7 +25,8 @@ public class Sandfilter extends Structure{
                 length, 
                 new Measurement(1.5, CustomaryUnit.FOOT), 
                 gabionHeight.subtract(
-                        new Measurement(0.5, CustomaryUnit.FOOT)));
+                        new Measurement(0.5, CustomaryUnit.FOOT)),
+                null);
     }
     
     @Override
