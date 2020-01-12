@@ -19,28 +19,14 @@ import measurements.Quantity;
  *
  * @author A3
  */
-public class GabionSandwichFilter extends Structure {
+public abstract class GabionSandwichFilter  {
     private EnumMap<Gabion, Integer> baskets;
     private static final Measurement width = new Measurement(3, 
             CustomaryUnit.FOOT);
+    private ArrayList<Structure> components;
 
-    public GabionSandwichFilter(Measurement length, Measurement height) {
-        super("Gabion Sandwich Filter",
-                new ArrayList<Material>(Arrays.asList( 
-                        Material.GABION_STONE, Material.SAND, 
-                        Material.NO1_STONE, Material.WOVEN_GEO)),
-                length,
-                width,
-                height);
+    public GabionSandwichFilter(ArrayList<Structure> components) {
         this.baskets = new EnumMap<>(Gabion.class);
-        
-    }
-
-    @Override
-    public Quantity getQuantity(Material m) throws IllegalArgumentException {
-        CheckIfValidMaterial(m);
-        
-        
-        return null;
+        this.components = components;
     }
 }
