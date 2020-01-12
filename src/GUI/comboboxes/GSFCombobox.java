@@ -17,10 +17,8 @@ public class GSFCombobox extends JComboBox {
         super();
         this.addItem("-Select GSF Style-");
         this.addItem("Basic GSF");
-        this.addItem("Angled GSF, Simple");
-        this.addItem("Angled GSF, Complex");
-        this.addItem("Square GSF, Simple");
-        this.addItem("Square GSF, Complex");
+        this.addItem("Angled GSF");
+        this.addItem("Square GSF");
         this.setMaximumRowCount(this.getItemCount());
     }
 }
