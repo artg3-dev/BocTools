@@ -42,6 +42,5 @@ public class GabionWall extends Structure {
             return new Quantity(v, Material.GABION_STONE);
         }
         return null;
-
     }
 }
