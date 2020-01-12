@@ -35,7 +35,8 @@ public class GabionWall extends Structure {
 
     public GabionWall(Measurement length, Measurement height) {
         super("Gabion Wall",
-                new ArrayList<Material>(Arrays.asList(Material.GABION_STONE)));
+                new ArrayList<Material>(Arrays.asList(Material.GABION_STONE,
+                        Material.WOVEN_GEO)));
         measurements.put(Measurement.LENGTH, length);
         measurements.put(Measurement.WIDTH, width);
         measurements.put(Measurement.HEIGHT, height);
@@ -49,11 +50,15 @@ public class GabionWall extends Structure {
 
     @Override
     public Quantity getQuantity(Material m) {
-        if (materials.contains(m)) {
+        if (m == Material.GABION_STONE) {
             Measurement v = measurements.get(Measurement.LENGTH).multiply(
                     width.multiply(measurements.get(Measurement.HEIGHT)));
             v.toYards();
             return new Quantity(v, Material.GABION_STONE);
+        } else if (m == Material.WOVEN_GEO) {
+            Measurement a = measurements.get(Measurement.LENGTH).multiply(
+                    new Measurement(12.5));
+            return new Quantity(a, Material.WOVEN_GEO);
         }
         return null;
     }
