@@ -15,6 +15,7 @@ public class Measurement implements Convertable, Cloneable {
     public static final int LENGTH = 0;
     public static final int WIDTH = 1;
     public static final int HEIGHT = 2;
+    public static final int RADIUS = 3;
 
     private double value;
     private CustomaryUnit unit;
@@ -24,6 +25,12 @@ public class Measurement implements Convertable, Cloneable {
         this.value = value;
         this.unit = unit;
         this.dim = unit.getDim();
+    }
+    
+    public Measurement(double value) {
+        this.value = value;
+        this.unit = CustomaryUnit.FOOT;
+        this.dim = this.unit.getDim();
     }
 
     public CustomaryUnit getUnit() {

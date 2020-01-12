@@ -13,6 +13,7 @@ public enum Material {
     GABION_STONE("Gabion stone"),
     NO1_STONE("No. 1 stone"),
     SAND("Sand"),
+    SAND_MULCH("Sand/mulch mixture"),
     WOVEN_GEO("Woven Geotextile");
         
     private final String name;

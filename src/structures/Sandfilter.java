@@ -21,27 +21,28 @@ public class Sandfilter extends Structure{
             Material type) {
         super("Sand filter", 
                 new ArrayList<Material>(Arrays.asList(type, Material.NO1_STONE, 
-                        Material.WOVEN_GEO)), 
-                length, 
-                new Measurement(1.5, CustomaryUnit.FOOT), 
-                gabionHeight.subtract(
+                        Material.WOVEN_GEO)));
+        measurements.put(Measurement.LENGTH, length);
+        measurements.put(Measurement.WIDTH, new Measurement(1.5, 
+                CustomaryUnit.FOOT));
+        measurements.put(Measurement.HEIGHT, gabionHeight.subtract(
                         new Measurement(0.5, CustomaryUnit.FOOT)));
+        
     }
     
     @Override
     public Quantity getQuantity(Material m) {
         // Sand or sand/mulch
         if (m == materials.get(0)) {
-            Measurement v = getLength().multiply(
-                    getWidth().multiply(getHeight()));
+            Measurement v = getVolume();
             v.toYards();
             return new Quantity(v, m);
         }
         
         // No. 1 Stone
         if (m == materials.get(1)) {
-            Measurement v = getLength().multiply(
-                    getWidth().multiply(
+            Measurement v = measurements.get(Measurement.LENGTH).multiply(
+                    measurements.get(Measurement.WIDTH).multiply(
                             new Measurement(0.5, CustomaryUnit.FOOT)));
             v.toYards();
             return new Quantity(v, m);
@@ -49,7 +50,7 @@ public class Sandfilter extends Structure{
         
         // Geotextile
         if (m == materials.get(2)) {
-            Measurement v = getLength().multiply(
+            Measurement v = measurements.get(Measurement.LENGTH).multiply(
                     new Measurement(12.5, CustomaryUnit.FOOT));
             v.toFeet();
             return new Quantity(v, m);
