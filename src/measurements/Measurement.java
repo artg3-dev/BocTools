@@ -26,6 +26,12 @@ public class Measurement implements Convertable, Cloneable {
         this.unit = unit;
         this.dim = unit.getDim();
     }
+    
+    public Measurement(double value) {
+        this.value = value;
+        this.unit = CustomaryUnit.FOOT;
+        this.dim = this.unit.getDim();
+    }
 
     public CustomaryUnit getUnit() {
         return unit;
