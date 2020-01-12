@@ -15,11 +15,11 @@ import measurements.Quantity;
  *
  * @author A3
  */
-public class SimpleGSF extends GabionSandwichFilter{
+public class BasicGSF extends GabionSandwichFilter{
     private Sandfilter filter;
     private GabionWall outterWall, innerWall;
 
-    public SimpleGSF(Material sandType, 
+    public BasicGSF(Material sandType, 
             Measurement length, Measurement height) {
         super(sandType);
         
