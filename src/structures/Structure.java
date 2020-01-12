@@ -86,8 +86,6 @@ public abstract class Structure {
         }
     }
 
-    abstract public Quantity getQuantity(Material m);
-
     public HashMap<Material, Quantity> getQuantities() {
         HashMap<Material, Quantity> qntys = new HashMap<>();
         for (Material m : materials) {
@@ -96,4 +94,6 @@ public abstract class Structure {
 
         return qntys;
     }
+    
+    abstract public Quantity getQuantity(Material m);
 }
