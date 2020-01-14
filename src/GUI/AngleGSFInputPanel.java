@@ -6,17 +6,21 @@
 package GUI;
 
 import GUI.comboboxes.FilterComboBox;
+import Materials.Material;
 import javax.swing.BoxLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import measurements.Measurement;
+import structures.AngleGSF;
+import structures.GabionSandwichFilter;
 
 /**
  *
  * @author A3
  */
-public class AngleGSFInputPanel extends JPanel {
+public class AngleGSFInputPanel extends JPanel implements HasGSF{
 
     private JCheckBox isSimple;
     private JLabel sideALabel, sideBLabel;
@@ -47,6 +51,26 @@ public class AngleGSFInputPanel extends JPanel {
         
         filterType = new FilterComboBox();
         add(filterType);
+    }
+
+    @Override
+    public GabionSandwichFilter getGSF() throws IllegalArgumentException {
+        if (sideAInput.getText().equals("") || 
+                sideBInput.getText().equals("")) {
+            throw new IllegalArgumentException("You must input both lengths");
+        } 
+        
+        try {
+            Material sandType = filterType.getMaterial();
+            Measurement sideA = new Measurement(Double.parseDouble(
+                    sideAInput.getText()));
+            Measurement sideB = new Measurement(Double.parseDouble(
+                    sideBInput.getText()));
+            return new AngleGSF(sandType, sideA, sideB, new Measurement(3), 
+                    isSimple.isSelected());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Lengths must be numbers");
+        }
     }
 
 }
