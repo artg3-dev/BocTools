@@ -7,7 +7,9 @@ package GUI;
 
 import GUI.comboboxes.FilterComboBox;
 import Materials.Material;
-import javax.swing.BoxLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,28 +31,48 @@ public class AngleGSFInputPanel extends JPanel implements HasGSF{
     
     public AngleGSFInputPanel() {
         super();
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.insets = new Insets(2, 2, 2, 2);
         
+        //isSimple checkbox
+        c.gridx = 0;
+        c.gridy = 0;
         isSimple = new JCheckBox("Simple");
         isSimple.setSelected(true);
-        add(isSimple);
+        add(isSimple, c);
         
+        //sideA label
+        c.gridx = 0;
+        c.gridy = 2;
         sideALabel = new JLabel("Side A length (ft)");
-        add(sideALabel);
+        add(sideALabel, c);
         
+        //sideA input
+        c.gridx = 1;
+        c.gridy = 2;
         sideAInput = new JTextField();
         sideAInput.setColumns(6);
-        add(sideAInput);
+        add(sideAInput, c);
         
+        //sideB label
+        c.gridx = 0;
+        c.gridy = 3;
         sideBLabel = new JLabel("Side B length (ft)");
-        add(sideBLabel);
+        add(sideBLabel, c);
         
+        //sideB input
+        c.gridx = 1;
+        c.gridy = 3;
         sideBInput = new JTextField();
         sideBInput.setColumns(6);
-        add(sideBInput);
+        add(sideBInput, c);
         
+        //combobox
+        c.gridx = 1;
+        c.gridy = 0;
         filterType = new FilterComboBox();
-        add(filterType);
+        add(filterType, c);
     }
 
     @Override
