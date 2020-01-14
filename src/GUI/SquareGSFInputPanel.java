@@ -80,7 +80,8 @@ public class SquareGSFInputPanel extends JPanel implements HasGSF {
             return new SquareGSF(sandType, sideA, sideB, sideC, 
                     new Measurement(3), isSimple.isSelected());
         } catch (Exception e) {
-            throw new IllegalArgumentException("Lengths must be numbers");
+            throw new IllegalArgumentException(
+                    "Lengths must be numbers divisible by 3");
         }
     }
 

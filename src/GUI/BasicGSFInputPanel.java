@@ -51,7 +51,8 @@ public class BasicGSFInputPanel extends JPanel implements HasGSF {
                     inputLength.getText()));
             return new BasicGSF(sandType, length, new Measurement(3));
         } catch (Exception e) {
-            throw new IllegalArgumentException("Length must be a number");
+            throw new IllegalArgumentException(
+                    "Length must be a number divisible by 3");
         }
     }
 }

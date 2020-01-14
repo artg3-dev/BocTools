@@ -69,7 +69,8 @@ public class AngleGSFInputPanel extends JPanel implements HasGSF{
             return new AngleGSF(sandType, sideA, sideB, new Measurement(3), 
                     isSimple.isSelected());
         } catch (Exception e) {
-            throw new IllegalArgumentException("Lengths must be numbers");
+            throw new IllegalArgumentException(
+                    "Lengths must be numbers divisible by 3");
         }
     }
 
