@@ -21,7 +21,7 @@ import structures.GabionSandwichFilter;
  *
  * @author A3
  */
-public class ResultsLabel extends JPanel {
+public class ResultsPanel extends JPanel {
 
     private GabionSandwichFilter gsf;
     private JLabel gStoneLabel, sandLabel, nStoneLabel, geoLabel,
@@ -29,7 +29,7 @@ public class ResultsLabel extends JPanel {
     private JLabel gStoneAmt, sandAmt, nStoneAmt, geoAmt,
             sixAmt, nineAmt;
 
-    public ResultsLabel() {
+    public ResultsPanel() {
         super();
         setVisible(true);
         setLayout(new GridBagLayout());

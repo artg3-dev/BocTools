@@ -27,7 +27,7 @@ public class MainPanel extends JPanel implements ItemListener, ActionListener {
 
     private JComboBox cb;
     private GSFInputPanel gsfInput;
-    private ResultsLabel gsfResults;
+    private ResultsPanel gsfResults;
     private JButton button;
 
     public MainPanel() {
@@ -38,7 +38,7 @@ public class MainPanel extends JPanel implements ItemListener, ActionListener {
         cb = new JComboBox(gsfInput.getComboBoxItems());
         cb.addItemListener(this);
 
-        gsfResults = new ResultsLabel();
+        gsfResults = new ResultsPanel();
         gsfResults.setVisible(false);
 
         button = new JButton("Generate GSF");
