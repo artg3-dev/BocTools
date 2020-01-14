@@ -37,9 +37,10 @@ public class ResultsLabel extends JPanel {
         Insets inset = new Insets(0, 10, 0, 0);
 
         gStoneLabel = new JLabel("Gabion Stone:");
-        Font bold = gStoneLabel.getFont().deriveFont(Font.BOLD, 18f);
+        Font bold = gStoneLabel.getFont().deriveFont(Font.BOLD, 15f);
         gStoneLabel.setFont(bold);
         c = new GridBagConstraints();
+        c.weighty = 1;
         c.gridx = 0;
         c.gridy = 0;
         c.anchor = GridBagConstraints.LINE_END;
@@ -47,6 +48,7 @@ public class ResultsLabel extends JPanel {
 
         gStoneAmt = new JLabel();
         c = new GridBagConstraints();
+        c.weighty = 1;
         c.gridx = 1;
         c.gridy = 0;
         c.anchor = GridBagConstraints.LINE_START;
@@ -56,6 +58,7 @@ public class ResultsLabel extends JPanel {
         sandLabel = new JLabel("Sand:");
         sandLabel.setFont(bold);
         c = new GridBagConstraints();
+        c.weighty = 1;
         c.anchor = GridBagConstraints.LINE_END;
         c.gridx = 0;
         c.gridy = 1;
@@ -63,6 +66,7 @@ public class ResultsLabel extends JPanel {
 
         sandAmt = new JLabel();
         c = new GridBagConstraints();
+        c.weighty = 1;
         c.gridx = 1;
         c.gridy = 1;
         c.anchor = GridBagConstraints.LINE_START;
@@ -72,6 +76,7 @@ public class ResultsLabel extends JPanel {
         nStoneLabel = new JLabel("No. 1 Stone:");
         nStoneLabel.setFont(bold);
         c = new GridBagConstraints();
+        c.weighty = 1;
         c.anchor = GridBagConstraints.LINE_END;
         c.gridx = 0;
         c.gridy = 2;
@@ -79,6 +84,7 @@ public class ResultsLabel extends JPanel {
 
         nStoneAmt = new JLabel();
         c = new GridBagConstraints();
+        c.weighty = 1;
         c.gridx = 1;
         c.gridy = 2;
         c.anchor = GridBagConstraints.LINE_START;
@@ -88,6 +94,7 @@ public class ResultsLabel extends JPanel {
         geoLabel = new JLabel("Woven Geo:");
         geoLabel.setFont(bold);
         c = new GridBagConstraints();
+        c.weighty = 1;
         c.anchor = GridBagConstraints.LINE_END;
         c.gridx = 0;
         c.gridy = 3;
@@ -95,6 +102,7 @@ public class ResultsLabel extends JPanel {
 
         geoAmt = new JLabel();
         c = new GridBagConstraints();
+        c.weighty = 1;
         c.gridx = 1;
         c.gridy = 3;
         c.anchor = GridBagConstraints.LINE_START;
@@ -114,12 +122,15 @@ public class ResultsLabel extends JPanel {
         sixLabel = new JLabel(Gabion.BASKET_6X3X3.toString() + "s:");
         sixLabel.setFont(bold);
         c = new GridBagConstraints();
+        c.weighty = 1;
         c.anchor = GridBagConstraints.LINE_END;
         c.gridx = 0;
         c.gridy = 5;
         add(sixLabel, c);
 
         sixAmt = new JLabel();
+        c = new GridBagConstraints();
+        c.weighty = 1;
         c.gridx = 1;
         c.gridy = 5;
         c.anchor = GridBagConstraints.LINE_START;
@@ -129,6 +140,7 @@ public class ResultsLabel extends JPanel {
         nineLabel = new JLabel(Gabion.BASKET_9X3X3.toString() + "s:");
         nineLabel.setFont(bold);
         c = new GridBagConstraints();
+        c.weighty = 1;
         c.anchor = GridBagConstraints.LINE_END;
         c.gridx = 0;
         c.gridy = 6;
@@ -136,6 +148,7 @@ public class ResultsLabel extends JPanel {
 
         nineAmt = new JLabel();
         c = new GridBagConstraints();
+        c.weighty = 1;
         c.gridx = 1;
         c.gridy = 6;
         c.anchor = GridBagConstraints.LINE_START;
