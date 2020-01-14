@@ -21,6 +21,15 @@ public enum Material {
     private Material(String name) {
         this.name = name;
     }
+    
+    public static Material stringValueOf(String s) {
+        for (Material i : Material.values()) {
+            if (i.name.equalsIgnoreCase(s)) {
+                return i;
+            }
+        }
+        return null;
+    }
 
     @Override
     public String toString() {
