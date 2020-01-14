@@ -12,5 +12,5 @@ import structures.GabionSandwichFilter;
  * @author A3
  */
 public interface HasGSF {
-    public GabionSandwichFilter getGSF();
+    public GabionSandwichFilter getGSF() throws IllegalArgumentException;
 }
