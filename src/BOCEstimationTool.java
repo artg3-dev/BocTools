@@ -9,7 +9,6 @@
  * @author A3
  */
 import GUI.BOCToolsGUI;
-import GUI.Testing;
 import javax.swing.SwingUtilities;
 
 public class BOCEstimationTool {
