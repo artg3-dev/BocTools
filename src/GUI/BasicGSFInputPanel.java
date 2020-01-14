@@ -48,7 +48,7 @@ public class BasicGSFInputPanel extends JPanel implements HasGSF {
         try {
             Material sandType = filterType.getMaterial();
             Measurement length = new Measurement(Double.parseDouble(
-                    inputLength.getText()), CustomaryUnit.FOOT);
+                    inputLength.getText()));
             return new BasicGSF(sandType, length, new Measurement(3));
         } catch (Exception e) {
             throw new IllegalArgumentException("Length must be a number");
