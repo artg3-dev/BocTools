@@ -24,7 +24,9 @@ public class InfoPanel extends JPanel{
             + "and baskets are nested at intersections during construction";
     public InfoPanel() {
         super();
-        JTextArea textArea = new JTextArea(info);
+        JTextArea textArea = new JTextArea(info, 10, 25);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
         add(textArea);
     }
     
