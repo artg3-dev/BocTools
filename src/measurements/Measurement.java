@@ -12,9 +12,8 @@ import java.text.DecimalFormat;
  *
  * @author A3
  */
-
 public class Measurement implements Convertable, Cloneable {
-    
+
     public static final int LENGTH = 0;
     public static final int WIDTH = 1;
     public static final int HEIGHT = 2;
@@ -23,7 +22,7 @@ public class Measurement implements Convertable, Cloneable {
     private double value;
     private CustomaryUnit unit;
     private final UnitDimension dim;
-    
+
     private static DecimalFormat df2 = new DecimalFormat("#.##");
 
     public Measurement(double value, CustomaryUnit unit) {
@@ -31,7 +30,7 @@ public class Measurement implements Convertable, Cloneable {
         this.unit = unit;
         this.dim = unit.getDim();
     }
-    
+
     public Measurement(double value) {
         this.value = value;
         this.unit = CustomaryUnit.FOOT;
@@ -70,7 +69,7 @@ public class Measurement implements Convertable, Cloneable {
         if (this.dim != m.dim) {
             throw new IllegalArgumentException(
                     "Measurements must be of the same "
-                            + "dimension to be subtracted");
+                    + "dimension to be subtracted");
         }
 
         //converts the given measurement to the unit of this instance
@@ -167,6 +166,17 @@ public class Measurement implements Convertable, Cloneable {
         } catch (CloneNotSupportedException e) {
         }
         return null;
+    }
+
+    public String toTons() {
+        df2.setRoundingMode(RoundingMode.HALF_UP);
+        double tons = this.value * 1.6;
+
+        if (tons == 1) {
+            return df2.format(tons) + " ton";
+        } else {
+            return df2.format(tons) + " tons";
+        }
     }
 
     @Override
