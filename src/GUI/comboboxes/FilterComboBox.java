@@ -21,4 +21,8 @@ public class FilterComboBox extends JComboBox {
         setMaximumRowCount(this.getItemCount());
     }
 
+    public Material getMaterial() {
+        Material m = Material.stringValueOf((String)this.getSelectedItem());
+        return m;
+    }
 }
