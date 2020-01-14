@@ -9,6 +9,7 @@ import GUI.comboboxes.FilterComboBox;
 import Materials.Material;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -30,22 +31,24 @@ public class BasicGSFInputPanel extends JPanel implements HasGSF {
         super();
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-        
+
         label = new JLabel("Length (ft)");
         inputLength = new JTextField();
         inputLength.setColumns(6);
         filterType = new FilterComboBox();
-        
+
+        c.insets = new Insets(2, 2, 2, 2);
+
         //label
         c.gridx = 0;
         c.gridy = 1;
         add(label, c);
-        
+
         //input
         c.gridx = 1;
         c.gridy = 1;
         add(inputLength, c);
-        
+
         //combobox
         c.gridx = 0;
         c.gridy = 0;
