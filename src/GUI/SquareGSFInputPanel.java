@@ -121,7 +121,7 @@ public class SquareGSFInputPanel extends JPanel implements HasGSF {
         if (sideAInput.getText().equals("")
                 || sideBInput.getText().equals("")
                 || sideCInput.getText().equals("")) {
-            throw new IllegalArgumentException("You must input both lengths");
+            throw new IllegalArgumentException("You must input all lengths");
         }
 
         try {
@@ -136,6 +136,7 @@ public class SquareGSFInputPanel extends JPanel implements HasGSF {
             return new SquareGSF(sandType, sideA, sideB, sideC,
                     new Measurement(3), isSimple.isSelected());
         } catch (Exception e) {
+            e.printStackTrace();
             throw new IllegalArgumentException(
                     "Lengths must be numbers divisible by 3");
         }
