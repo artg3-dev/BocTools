@@ -111,6 +111,9 @@ public abstract class GabionSandwichFilter extends Structure {
                 }
             }
         }
+        if (q.getMaterial() == Material.WOVEN_GEO) {
+            q.getMeasurement().toYards();
+        }
         return q;
     }
 }
