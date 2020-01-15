@@ -16,7 +16,7 @@ public class InfoPanel extends JPanel{
     private final String info = "Simple: "
             + "A GSF that is a straight line\n" 
             + "Angle: A GSF that has two arms\n"
-            + "Box: A GSF that has two arms and a front face\n"
+            + "Square: A GSF that has two arms and a front face\n"
             + "\n"
             + "Simple: All angles in the GSF are 90 degrees, "
             + "and baskets are not nested during construction\n"

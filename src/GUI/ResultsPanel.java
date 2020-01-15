@@ -162,11 +162,11 @@ public class ResultsPanel extends JPanel {
         if (g.getQuantity(Material.SAND) != null) {
             sandLabel.setText(Material.SAND.toString() + ":");
             sandAmt.setText(g.getQuantity(Material.SAND).getMeasurement()
-                    .toString());
+                    .toTons());
         } else {
             sandLabel.setText(Material.SAND_MULCH.toString() + ":");
             sandAmt.setText(g.getQuantity(Material.SAND_MULCH).getMeasurement()
-                    .toString());
+                    .toTons());
         }
         nStoneAmt.setText(g.getQuantity(Material.NO1_STONE)
                 .getMeasurement().toTons());
