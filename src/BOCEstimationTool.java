@@ -18,7 +18,7 @@ public class BOCEstimationTool {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        BOCToolsGUI gui = new BOCToolsGUI();
+        BOCToolsGUI gui = new BOCToolsGUI(VERSION);
         SwingUtilities.invokeLater(gui);
     }
 }

@@ -15,12 +15,14 @@ import javax.swing.WindowConstants;
  */
 public class BOCToolsGUI implements Runnable{
     private JFrame frame;
-    public BOCToolsGUI() {
+    private String version;
+    public BOCToolsGUI(String version) {
+        this.version = version;
     }
     
     @Override
     public void run() {
-        frame = new JFrame("BOC Estimation Tool");
+        frame = new JFrame("BOC Estimation Tool " + version);
         frame.setPreferredSize(new Dimension(600, 300));
         frame.setResizable(false);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
