@@ -12,6 +12,7 @@ import GUI.BOCToolsGUI;
 import javax.swing.SwingUtilities;
 
 public class BOCEstimationTool {
+    public static final String VERSION = "v0.3-alpha";
 
     /**
      * @param args the command line arguments
@@ -19,9 +20,5 @@ public class BOCEstimationTool {
     public static void main(String[] args) {
         BOCToolsGUI gui = new BOCToolsGUI();
         SwingUtilities.invokeLater(gui);
-        
-        
-
     }
-
 }
