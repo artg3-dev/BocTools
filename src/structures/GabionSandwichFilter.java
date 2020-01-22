@@ -11,8 +11,6 @@ import Materials.Material;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumMap;
-import measurements.CustomaryUnit;
-import measurements.Measurement;
 import measurements.Quantity;
 
 /**
