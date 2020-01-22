@@ -11,8 +11,6 @@ import Materials.Material;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumMap;
-import measurements.CustomaryUnit;
-import measurements.Measurement;
 import measurements.Quantity;
 
 /**
@@ -22,6 +20,7 @@ import measurements.Quantity;
 public abstract class GabionSandwichFilter extends Structure {
 
     public static final int FILTER = 0;
+    private final Material sandType;
 
     protected EnumMap<Gabion, Integer> baskets;
 
@@ -33,6 +32,7 @@ public abstract class GabionSandwichFilter extends Structure {
                 sandType,
                 Material.NO1_STONE,
                 Material.WOVEN_GEO)));
+        this.sandType = sandType;
         this.baskets = new EnumMap<>(Gabion.class);
         this.components = new HashMap();
     }
@@ -72,6 +72,10 @@ public abstract class GabionSandwichFilter extends Structure {
         }
 
         return null;
+    }
+    
+    public Material getSandType() {
+        return sandType;
     }
     
     @Override

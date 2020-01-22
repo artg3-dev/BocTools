@@ -159,14 +159,14 @@ public class ResultsPanel extends JPanel {
     public void update(GabionSandwichFilter g) {
         gStoneAmt.setText(g.getQuantity(Material.GABION_STONE).getMeasurement()
                 .toTons());
-        if (g.getQuantity(Material.SAND) != null) {
+        if (g.getSandType() == Material.SAND) {
             sandLabel.setText(Material.SAND.toString() + ":");
             sandAmt.setText(g.getQuantity(Material.SAND).getMeasurement()
                     .toTons());
         } else {
             sandLabel.setText(Material.SAND_MULCH.toString() + ":");
             sandAmt.setText(g.getQuantity(Material.SAND_MULCH).getMeasurement()
-                    .toTons());
+                    .toString());
         }
         nStoneAmt.setText(g.getQuantity(Material.NO1_STONE)
                 .getMeasurement().toTons());
